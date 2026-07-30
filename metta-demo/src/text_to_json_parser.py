@@ -150,7 +150,7 @@ def _txt(resp):
         return resp.text
     return str(resp)
 
-def parse_question_to_json(q, assumed_subject=None):
+def parse_question_to_json(q, assumed_subject):
     if not q or not q.strip():
         raise ValueError("Empty question")
     parsed = _parse_question_locally(q, assumed_subject=assumed_subject)
