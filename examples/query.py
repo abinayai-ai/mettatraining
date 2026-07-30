@@ -9,39 +9,39 @@ print(metta.run("(Parent Ann Liz)"))
 # output = metta.run("!(match &self (Parent $x Bob) $x)") # returns as a Python list
 # print(output[0][0])
 
-# print(
-#     metta.run(
-#         "!(match &self (Parent $x Liz) (match &self (Parent $y $x) ($y is the grand parent of Liz)))"
-#     )
-# )
+print(
+    metta.run(
+        "!(match &self (Parent $x Liz) (match &self (Parent $y $x) ($y is the grand parent of Liz)))"
+    )
+)
 
-# with open("family.metta") as file:
-#     metta.run(file.read()) # loads the metta file
-#     output = metta.run("!(grandparent Liz)")
-#     # print(output)
-#     # metta.run("!(add-atom &self (Parent Tom Frank))")
-#     metta.run("(Parent Tom Frank)")
-#     metta.run("(Parent Monica John)")
-#     atoms = metta.run("!(parent John)") # Tom
+with open("family.metta") as file:
+    metta.run(file.read()) # loads the metta file
+    output = metta.run("!(grandparent Liz)")
+    # print(output)
+    # metta.run("!(add-atom &self (Parent Tom Frank))")
+    metta.run("(Parent Tom Frank)")
+    metta.run("(Parent Monica John)")
+    atoms = metta.run("!(parent John)") # Tom
 
-#     print(atoms)
+    print(atoms)
 
 ## Parsing MeTTa Code
 # parse_single, parse_all: add unreduced atoms to the space
 # run: run a query
-# print(metta.run("!(+ 1 2)"))
-# print(metta.parse_single("!(+ 1 2)"))
-# print(metta.parse_single("(A B)(C D)"))
-# print(metta.parse_all("(A B)(C D)(E F)"))
+print(metta.run("!(+ 1 2)"))
+print(metta.parse_single("!(+ 1 2)"))
+print(metta.parse_single("(A B)(C D)"))
+print(metta.parse_all("(A B)(C D)(E F)"))
 
-# atom = metta.parse_single(
-#     "(CourseInfo MeTTaPythonBasics ((Accessing Program Space) (Parsing MeTTa Code) (MeTTa Runner Class)))"
-# )
+atom = metta.parse_single(
+    "(CourseInfo MeTTaPythonBasics ((Accessing Program Space) (Parsing MeTTa Code) (MeTTa Runner Class)))"
+)
 # (CourseInfo CourseTitle (subtitles))
-# metta.space().add_atom(atom)
-# payload_atom = metta.run(
-#     "!(match &self (CourseInfo MeTTaPythonBasics $payload) $payload)"
-# )[0][0]
+metta.space().add_atom(atom)
+payload_atom = metta.run(
+    "!(match &self (CourseInfo MeTTaPythonBasics $payload) $payload)"
+)[0][0]
 
 # print(payload_atom)
 
