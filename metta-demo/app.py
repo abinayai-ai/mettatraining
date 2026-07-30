@@ -3,7 +3,7 @@ import json
 import os
 import re
 from src.text_to_json_parser import parse_question_to_json, _call, _txt
-from src.json_to_metta_parser import find_by_json
+from src.utils import find_by_json
 
 USE_LLM_ANSWER = os.getenv("USE_LLM_ANSWER", "false").lower() in {"1", "true", "yes", "on"}
 
